@@ -47,6 +47,17 @@ foreach($arResult["ITEMS"] as $cell=>$arElement):
 		<?=$arElement["PREVIEW_TEXT"]?>
 	</div>
 
+	<?if(!empty($arElement["REVIEWS"]) && count($arElement["REVIEWS"]) > 0):?>	
+		<div>
+			<b><?=GetMessage('REVIEWS_TITLE')?></b>
+		</div>
+		<?foreach($arElement["REVIEWS"] as $value=>$arReview):?>
+			<div>
+				<?=$arReview['NAME']?>
+			</div>
+		<?endforeach;?>
+	<?endif;?>	
+
 <?
 	foreach($arElement["PRICES"] as $code=>$arPrice):
 		if($arPrice["CAN_ACCESS"]):

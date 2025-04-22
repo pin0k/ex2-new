@@ -140,6 +140,8 @@ IncludeTemplateLangFile(__FILE__);
 					</div>
 				</div>
 
+				<?$APPLICATION->ShowViewContent('REVIEWS_ADDITIONAL');?>
+
 				<div class="content-block">
 					<div class="content-block-inner">
 
