@@ -46,11 +46,12 @@ class SendReviewsUpdate {
 			"ID",
 			"NAME",
 			"IBLOCK_ID",
-			"IBLOCK_NAME" => "IBLOCK.NAME"
+			"IBLOCK_NAME" => "IBLOCK.NAME",
+			"TIMESTAMP_X" => "TIMESTAMP_X",
 		]);
         
 		$query->setFilter([
-			">DATE_CREATE" => $lastTimeExec ?: (new BitrixDateTime())->add("-1 day"),
+			">TIMESTAMP_X" => $lastTimeExec ?: (new BitrixDateTime())->add("-1 day"),
             "IBLOCK_ID" => self::REVIEWS_IBLOCK_ID,
 		]);
 		$query->setOrder([
