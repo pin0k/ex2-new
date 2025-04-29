@@ -53,3 +53,18 @@
 		</a>
 	<?endif;?>
 </div>
+
+
+<?if($arResult["RELATED_PRODUCT"]):?>
+	<?$this->SetViewTarget('news_related_product');?>
+		<a class="news-related-product-block" href="<?=$arResult["RELATED_PRODUCT"]["DETAIL_PAGE_URL"];?>">
+			<img class="img img_lazy lazyload object-fit-cover"
+				src="<?=$arResult["RELATED_PRODUCT"]["IMG"]["src"];?>"
+				alt="<?=$arResult["RELATED_PRODUCT"]["NAME"];?>"
+				title="<?=$arResult["RELATED_PRODUCT"]["NAME"];?>"
+				width="<?=$arResult["RELATED_PRODUCT"]["IMG"]["width"];?>"
+				height="<?=$arResult["RELATED_PRODUCT"]["IMG"]["height"];?>">
+			<div><?=$arResult["RELATED_PRODUCT"]["NAME"];?></div>
+		</a>
+	<?$this->EndViewTarget();?>
+<?endif;?>

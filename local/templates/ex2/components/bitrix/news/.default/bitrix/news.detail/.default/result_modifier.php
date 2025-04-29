@@ -38,3 +38,25 @@ if($arResult["ID"]) {
         }
     }
 }
+
+$this->__component->SetResultCachekeys(["ACTIVE_FROM"]);
+
+$relateProductId = $arResult["DISPLAY_PROPERTIES"]["RELATED_PRODUCT"]["VALUE"];
+if($relateProductId) {
+    $relateProductFields = $arResult["DISPLAY_PROPERTIES"]["RELATED_PRODUCT"]["LINK_ELEMENT_VALUE"][$relateProductId];
+    $img = CFile::ResizeImageGet(
+        $relateProductFields["DETAIL_PICTURE"],
+        [
+            "width" => 100,
+            "height" => 100,
+        ],
+        BX_RESIZE_IMAGE_PROPORTIONAL,
+        true
+    );
+
+    $arResult["RELATED_PRODUCT"] = [
+        'NAME' => $relateProductFields["NAME"],
+        "DETAIL_PAGE_URL" => $relateProductFields["DETAIL_PAGE_URL"],
+        "IMG" => $img,
+    ];
+}

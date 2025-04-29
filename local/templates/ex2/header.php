@@ -151,6 +151,12 @@ IncludeTemplateLangFile(__FILE__);
 						?>
 					</div>
 				</div>
+				
+				<div class="content-block">
+					<div class="content-block-inner">
+						<?$APPLICATION->ShowViewContent('news_related_product')?>
+					</div>
+				</div>
 
 				<div class="information-block">
 					<div class="top"></div>
@@ -169,4 +175,4 @@ IncludeTemplateLangFile(__FILE__);
 			</div>
 
 			<div id="workarea">
-				<h1 id="pagetitle"><? $APPLICATION->ShowTitle(false); ?></h1>
+				<h1 id="pagetitle"><? $APPLICATION->ShowTitle(false); ?><?$APPLICATION->ShowProperty("news_date_start");?></h1> 
